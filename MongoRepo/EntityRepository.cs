@@ -26,9 +26,9 @@ namespace MongoRepo
             return await cursor.ToListAsync();
         }
 
-        public async Task Update(Entity entity)
+        public Task Update(Entity entity)
         {
-            await _collection.FindOneAndReplaceAsync(e => e.Id == entity.Id, entity);
+            return _collection.FindOneAndReplaceAsync(e => e.Id == entity.Id, entity);
         }
     }
 }
